@@ -2,10 +2,12 @@ buildscript {
     repositories {
         maven { url = "https://files.minecraftforge.net/maven" }
         maven { url = "https://repo.spongepowered.org/repository/maven-public/" }
+        maven { url = "https://maven.moddingx.org/" }
     }
     dependencies {
         classpath group: "net.minecraftforge.gradle", name: "ForgeGradle", version: "5.1.+", changing: true
         classpath group: "org.spongepowered", name: "mixingradle", version: "0.7-SNAPSHOT"
+        classpath group: "org.moddingx", name: "ModGradle", version: "3.1.2"
     }
 }
 
@@ -23,6 +25,8 @@ group = "com.teamabnormals"
 archivesBaseName = project.modId
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+apply plugin: "org.moddingx.modgradle.sourcejar"
 
 minecraft {
     mappings channel: "official", version: project.minecraft
